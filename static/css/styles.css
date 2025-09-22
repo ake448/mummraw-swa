@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-gray:#0b0b0b;
+  --panel-gray:#111216;
+  --muted:#bfcfc2;
+  --accent-1:#00ff99;
+  --accent-2:#39ff14;
+  --max-width:1100px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: 'Rajdhani', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(ellipse at 60% 10%, rgba(57,255,20,0.12) 0%, transparent 70%), radial-gradient(ellipse at 20% 80%, rgba(0,255,153,0.10) 0%, transparent 70%), linear-gradient(120deg, #0a0a0a 60%, #003311 100%);
+  color:#e6f7ef;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+/* Header */
+header{position:fixed;top:0;left:0;width:100%;z-index:1000}
+header .container{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+header .logo{font-family:'Orbitron',sans-serif;font-size:2.1rem;font-weight:800;background:linear-gradient(90deg,#39ff14 10%,#00ff99 60%,#fff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 0 8px #39ff14);cursor:pointer}
+header::after{content:'';position:absolute;left:-150px;top:0;height:100%;width:120px;background:linear-gradient(120deg, transparent 60%, rgba(57,255,20,0.18) 80%, transparent 100%);filter:blur(8px);animation:shine-sweep 3.5s linear infinite;pointer-events:none;z-index:2}
+@keyframes shine-sweep{0%{left:-150px}100%{left:110%}}
+
+.nav-links{display:flex;gap:0.6rem;align-items:center;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--accent-1);text-decoration:none;padding:.5rem 1rem;border-radius:18px;background:rgba(20,40,20,0.18);border:1px solid rgba(57,255,20,0.08);backdrop-filter:blur(6px);transition:all .22s}
+.nav-links a:hover{color:#fff;background:rgba(0,255,153,0.10);box-shadow:0 0 16px #39ff14}
+
+/* Hero */
+.hero{padding-top:8rem;padding-bottom:4rem;max-width:700px;margin:0 auto;position:relative;z-index:2;text-align:center}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:2.5rem;margin:1rem 0;background:linear-gradient(90deg,#39ff14 10%,#00ff99 60%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 8px #39ff14)}
+.hero-content{max-width:700px;margin:0 auto}
+.hero .subtitle{color:var(--muted);font-weight:700;letter-spacing:2px;margin-top:.2rem}
+.tagline{color:#b6ffcf;margin:.6rem 0 1.2rem}
+.genre-tags{display:flex;gap:.6rem;justify-content:center;margin-bottom:1rem}
+.tag{padding:.4rem .8rem;border-radius:30px;background:rgba(20,40,20,0.35);color:var(--accent-1);font-weight:700}
+
+.cta-buttons{display:flex;gap:1rem;justify-content:center;margin-top:1rem}
+.btn{padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:700;border:none;cursor:pointer;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);transition:left .45s}
+.btn:hover::before{left:100%}
+.btn-primary{background:linear-gradient(45deg,var(--accent-1),var(--accent-2));color:#071013}
+.btn-secondary{background:rgba(74,222,128,0.08);color:var(--accent-1);border:1px solid var(--accent-1)}
+
+/* Sections */
+section{padding:4rem 0}
+.section-title{text-align:center;font-family:'Orbitron',sans-serif;font-size:2.4rem;margin-bottom:2rem;background:linear-gradient(45deg,#fff,#4ade80);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.about .about-content{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.about .placeholder{width:320px;height:320px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;background:linear-gradient(45deg,#333,#555);color:var(--accent-1);border:3px solid var(--accent-1);box-shadow:0 0 40px rgba(57,255,20,0.06)}
+
+.about-image{display:flex;align-items:center;justify-content:center}
+.about-photo{width:320px;height:320px;object-fit:cover;border-radius:50%;border:3px solid var(--accent-1);box-shadow:0 10px 40px rgba(0,0,0,0.6);display:block}
+
+.beatstars-embed{background:rgba(51,51,51,0.06);backdrop-filter:blur(12px);border-radius:18px;padding:2rem;border:1px solid rgba(57,255,20,0.06)}
+.embed-placeholder{height:420px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--accent-1);background:linear-gradient(45deg,#333,#444)}
+
+.pricing-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1.5rem}
+.price-card{background:rgba(20,40,20,0.55);padding:1.2rem;border-radius:14px;border:1px solid var(--accent-1);box-shadow:0 8px 30px rgba(0,0,0,0.6);color:#eaffef}
+.price-card h4{font-family:'Orbitron',sans-serif;color:var(--accent-1)}
+.price{font-family:'Orbitron',sans-serif;font-size:2rem;color:#fff}
+
+.contact-content{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-form{background:rgba(20,40,20,0.55);padding:1.6rem;border-radius:14px;border:1px solid var(--accent-1);max-width:520px;margin:0 auto}
+.form-group label{display:block;margin-bottom:.6rem;color:var(--accent-1);font-weight:700}
+.form-group input,.form-group textarea{width:100%;padding:.9rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.35);color:#fff}
+
+.social-links{display:flex;gap:1rem;justify-content:center;margin-top:1rem}
+.social-links a{display:inline-flex;width:56px;height:56px;align-items:center;justify-content:center;border-radius:50%;background:rgba(51,51,51,0.06);border:1px solid rgba(57,255,20,0.06);color:var(--accent-1)}
+
+footer{padding:2rem 0;text-align:center;color:var(--accent-1);border-top:1px solid rgba(255,255,255,0.02)}
+
+/* Extra spacing for contact section */
+.contact{padding-top:5rem}
+
+/* Particles */
+.animated-bg{position:fixed;inset:0;z-index:-1;background:transparent}
+.particles{position:absolute;inset:0}
+.particle{position:absolute;background:var(--accent-1);border-radius:50%;opacity:0.12;animation:float 8s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+
+/* Responsive */
+@media (max-width:880px){
+  .about .about-content{grid-template-columns:1fr}
+  .hero h1{font-size:1.9rem}
+  .nav-links{display:none}
+  header .container{padding:.6rem 0}
+}
+
